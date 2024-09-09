@@ -25,7 +25,30 @@ const ProductsPage = ({ categories }) => {
   );
 };
 
+export async function getStaticPaths() {
+  try {
+    const res = await axios.get(`${SERVER_URL}/categories`);
+    const categories = res.data;
+
+    const paths = categories.map((category) => ({
+      params: { category: category.urlPath }, 
+    }));
+
+    return {
+      paths,
+      fallback: false,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+}
+
 export async function getStaticProps() {
+
   try {
     const res = await axios.get(`${SERVER_URL}/categories`);
     const categories = res.data;
