@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "@/modules/cart";
 import { AppProvider } from "@/context/AppContext";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }) {
             <Layout>
               <div className={inter.className}>
                 <Component {...pageProps} />
+                <SpeedInsights />
               </div>
             </Layout>
           </AppProvider>

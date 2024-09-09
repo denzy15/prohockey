@@ -1,1 +1,0 @@
-{"version":1,"functions":{"/admin/products/edit/[id]":{},"/admin/categories/edit/[id]":{},"/admin/products/create":{},"/admin/products":{},"/products/[category]/[productName]":{},"/products/[category]":{},"/products":{},"/admin/categories":{}}}

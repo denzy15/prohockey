@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[498],{5255:function(n,u,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/admin/auth",function(){return t(1583)}])},1583:function(n,u,t){"use strict";t.r(u);var _=t(5893),i=t(2375);t(7294),u.default=()=>(0,_.jsx)(i.Bt,{})}},function(n){n.O(0,[888,774,179],function(){return n(n.s=5255)}),_N_E=n.O()}]);
