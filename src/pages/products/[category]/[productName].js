@@ -40,7 +40,7 @@ const ProductInfoPage = ({ product }) => {
 
 export async function getStaticPaths() {
   try {
-    const { data: products } = await axios.get(`${SERVER_URL}/products}`);
+    const { data: products } = await axios.get(`${SERVER_URL}/products`);
 
     const paths = products.map((product) => ({
       params: { productName: product.name },

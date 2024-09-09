@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/admin/categories/edit/[id]":{},"/admin/categories":{},"/admin/products/create":{},"/admin/products/edit/[id]":{},"/admin/products":{},"/products/[category]/[productName]":{},"/products/[category]":{},"/products":{}}}
+{"version":1,"functions":{"/admin/products/edit/[id]":{},"/admin/categories/edit/[id]":{},"/admin/products/create":{},"/admin/products":{},"/products/[category]/[productName]":{},"/products/[category]":{},"/products":{},"/admin/categories":{}}}

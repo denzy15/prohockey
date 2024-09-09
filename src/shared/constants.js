@@ -14,7 +14,6 @@ export const urlMap = {
 
 export const socialLinks = [
   { icon: <WhatsApp />, href: "https://wa.me/+77752053441", title: "WhatsApp" },
-  // { icon: <Telegram />, href: "https://t.me/cyberdennn" },
   {
     icon: <Instagram />,
     href: "https://www.instagram.com/prohockeykz/",
