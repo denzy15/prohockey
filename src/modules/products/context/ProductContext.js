@@ -3,13 +3,9 @@ import React, { createContext, useState } from "react";
 const ProductsContext = createContext({});
 
 const ProductsProvider = ({ children, initialProducts }) => {
-
   const [products, setProducts] = useState(initialProducts);
 
   const [sort, setSort] = useState("popularity");
-
-  console.log(products);
-  
 
   const applySorting = (newSort) => {
     setSort(newSort);

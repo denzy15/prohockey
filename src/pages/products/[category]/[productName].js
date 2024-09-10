@@ -30,7 +30,7 @@ const ProductInfoPage = ({ product }) => {
         />
         <meta
           property="og:url"
-          content={`https://yourwebsite.com/products/${category}/${productName}`}
+          content={`https://prohockey.kz/products/${category}/${productName}`}
         />
       </Head>
       <ProductInfo product={product}></ProductInfo>;
@@ -43,8 +43,11 @@ export async function getStaticPaths() {
     const { data: products } = await axios.get(`${SERVER_URL}/products`);
 
     const paths = products.map((product) => ({
-      params: { productName: product.name },
+      params: { category: product.category.urlPath, productName: product.name },
     }));
+
+    console.log(paths);
+    
 
     return {
       paths,
