@@ -1,34 +1,20 @@
 import {
   Category,
   Dashboard,
-  Drafts,
-  ExpandLess,
-  ExpandMore,
-  Inbox,
-  Send,
   ShoppingCart,
   SportsHockey,
-  StarBorder,
 } from "@mui/icons-material";
 import {
-  Accordion,
-  AccordionActions,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Button,
-  Collapse,
   Divider,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
   Paper,
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 
 const items = [
   {

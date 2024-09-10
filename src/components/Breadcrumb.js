@@ -1,8 +1,7 @@
 import React from "react";
-import { Breadcrumbs, Container, Link, Typography } from "@mui/material";
+import { Breadcrumbs, Link, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { useAppContext } from "@/context/AppContext";
 import { urlMap } from "@/shared/constants";
 import { reverseTransliterate } from "@/shared/utils";
 

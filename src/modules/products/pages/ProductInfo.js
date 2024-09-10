@@ -138,7 +138,6 @@ const ProductInfo = ({ product }) => {
     setIsInCart(true);
   };
 
-  
   const handleRemoveFromCart = () => {
     if (!isInCart) return;
 
@@ -157,7 +156,7 @@ const ProductInfo = ({ product }) => {
         <Box sx={{ flex: "1 0 50%" }}>
           <img
             style={{ height: 500, width: "100%", objectFit: "contain" }}
-            src={`${SERVER_URL}/${currentProductState.photo}`}
+            src={currentProductState.photo}
           />
         </Box>
         <Box sx={{ flexGrow: 1 }}>

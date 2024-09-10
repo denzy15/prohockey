@@ -3,7 +3,6 @@ import { Box, Chip, Stack, Tooltip, Typography } from "@mui/material";
 import React from "react";
 
 const ParameterSelect = ({ param, handleSelect, activeValue }) => {
-  
   const hasPhoto = !!param.values[0].photo;
 
   return (
@@ -30,10 +29,7 @@ const ParameterSelect = ({ param, handleSelect, activeValue }) => {
                 }}
               >
                 <Tooltip title={parVal.value}>
-                  <img
-                    style={{ maxWidth: "60px" }}
-                    src={`${SERVER_URL}/${parVal.photo}`}
-                  />
+                  <img style={{ maxWidth: "60px" }} src={parVal.photo} />
                 </Tooltip>
               </Box>
             ))

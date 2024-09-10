@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { createCategory, updateCategory } from "../../api/api";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { SERVER_URL } from "@/shared/constants";
 import { transliterate } from "@/shared/utils";
 
 const initialFormData = {
@@ -26,7 +25,7 @@ const CategoryForm = ({ initialData }) => {
     if (initialData) {
       setCategoryData({
         ...initialData,
-        photoPreview: `${SERVER_URL}/${initialData.photo}`,
+        photoPreview: initialData.photo,
       });
     }
   }, [initialData]);
@@ -46,6 +45,7 @@ const CategoryForm = ({ initialData }) => {
       photoPreview: URL.createObjectURL(e.target.files[0]),
     }));
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

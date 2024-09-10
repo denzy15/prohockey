@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { addSpacesToNumber } from "@/shared/utils";
-import { SERVER_URL } from "@/shared/constants";
 import { useRouter } from "next/router";
 import { ShoppingCart } from "@mui/icons-material";
 import CartCounter from "@/components/CartCounter";
@@ -174,7 +173,7 @@ const ProductCard = ({ product }) => {
             }}
           >
             <img
-              src={`${SERVER_URL}/${currentProductState.photo}`}
+              src={currentProductState.photo}
               alt={currentProductState.name}
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />

@@ -9,18 +9,16 @@ import {
   Radio,
   Select,
   TextField,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {
   createProduct,
-  deleteUnusedParameterImages,
+  deleteUnusedImages,
   updateProduct,
 } from "../../api/api";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-import { SERVER_URL } from "@/shared/constants";
 
 const initialProductData = {
   name: "",
@@ -42,17 +40,13 @@ const ProductForm = ({ categories, initialData }) => {
 
   const [loading, setLoading] = useState(false);
 
-  const [mainPhoto, setMainPhoto] = useState(
-    SERVER_URL + "/" + productData.photo
-  );
+  const [mainPhoto, setMainPhoto] = useState(productData.photo);
 
   useEffect(() => {
     if (initialData) {
       setProductData({
         ...initialData,
-        photoPreview: initialData.photo
-          ? `${SERVER_URL}/${initialData.photo}`
-          : "",
+        photoPreview: initialData.photo ? initialData.photo : "",
       });
 
       initialData.parameters.forEach((param, paramIndex) => {
@@ -65,19 +59,27 @@ const ProductForm = ({ categories, initialData }) => {
 
   useEffect(() => {
     if (Number.isInteger(hasPhotoParameter)) {
-      const defaultPhoto = productData.parameters[
+      const defaultValueIndex = productData.parameters[
         hasPhotoParameter
-      ].values.find((val) => val.defaultValue)?.photo;
+      ].values.findIndex((val) => val.defaultValue);
+
+      const defaultPhoto =
+        productData.parameters[hasPhotoParameter].values[defaultValueIndex]
+          .photo;
 
       if (typeof defaultPhoto === "string") {
-        setMainPhoto(`${SERVER_URL}/${defaultPhoto}`);
+        setMainPhoto(defaultPhoto);
       } else if (typeof defaultPhoto === "object" && defaultPhoto !== null) {
-        setMainPhoto(defaultPhoto.photoPreview);
+        setMainPhoto(
+          productData.parameters[hasPhotoParameter].values[defaultValueIndex]
+            .photoPreview
+        );
       } else {
         setMainPhoto("");
       }
     }
   }, [hasPhotoParameter, productData]);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -90,7 +92,6 @@ const ProductForm = ({ categories, initialData }) => {
     }
   };
 
-
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const file = files[0];
@@ -99,6 +100,7 @@ const ProductForm = ({ categories, initialData }) => {
       [name]: file,
       photoPreview: URL.createObjectURL(file),
     });
+    setMainPhoto(URL.createObjectURL(file));
   };
 
   const handleAddParameter = () => {
@@ -135,7 +137,6 @@ const ProductForm = ({ categories, initialData }) => {
       setHasPhotoParameter(paramIndex);
     } else if (name === "value") {
       newParameters[paramIndex].values[valueIndex][name] = e.target.value;
-      
     } else if (name === "extraPrice") {
       const numericValue = e.target.value.replace(/[^0-9]/g, "");
       newParameters[paramIndex].values[valueIndex][name] = numericValue;
@@ -272,9 +273,9 @@ const ProductForm = ({ categories, initialData }) => {
       router.push("/admin/products");
     } catch (error) {
       console.log(error);
-      deleteUnusedParameterImages();
       toast.error(error.message || "Произошла ошибка, попробуйте позже");
     } finally {
+      deleteUnusedImages();
       setLoading(false);
     }
   };
@@ -458,7 +459,7 @@ const ProductForm = ({ categories, initialData }) => {
                     <Box mt={2} textAlign="center">
                       <img
                         src={
-                          value.photoPreview || SERVER_URL + "/" + value.photo
+                          value.photoPreview || value.photo
                         }
                         alt="Превью"
                         style={{ maxWidth: "100%", maxHeight: "200px" }}
@@ -491,7 +492,6 @@ const ProductForm = ({ categories, initialData }) => {
                     fullWidth
                     label="Надбавка в тенге"
                     autoComplete="off"
-
                   />
                 </Grid>
               </Grid>
@@ -529,7 +529,7 @@ const ProductForm = ({ categories, initialData }) => {
           color="primary"
           fullWidth
           sx={{ mt: 2 }}
-          // disabled={loading}
+          disabled={loading}
         >
           Сохранить
         </Button>

@@ -6,9 +6,6 @@ import CartItem from "./CartItem";
 const CartItemsList = () => {
   const { cart } = useCart();
 
-console.log(cart);
-
-
   return (
     <Paper sx={{ bgcolor: "primary.light", color: "background.paper", p: 2 }}>
       <Typography variant="h5" mb={2}>

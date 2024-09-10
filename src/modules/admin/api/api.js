@@ -89,9 +89,9 @@ export const updateProduct = async (_id, formData) => {
   }
 };
 
-export const deleteUnusedParameterImages = async () => {
+export const deleteUnusedImages = async () => {
   try {
-    await axiosInstance.put(`${SERVER_URL}/products/clear/params-images`);
+    await axiosInstance.put(`${SERVER_URL}/admin/clear-images`);
   } catch (error) {
     console.error(error.response.data.message);
   }

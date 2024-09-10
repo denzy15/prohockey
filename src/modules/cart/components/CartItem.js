@@ -62,7 +62,7 @@ const CartItem = ({ product, index }) => {
               }}
             >
               <img
-                src={`${SERVER_URL}/${product.photo}`}
+                src={product.photo}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
