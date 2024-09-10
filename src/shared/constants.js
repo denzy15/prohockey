@@ -1,7 +1,7 @@
 import { Instagram, WhatsApp } from "@mui/icons-material";
 
-// export const SERVER_URL = "https://prohockey-server.onrender.com";
-export const SERVER_URL = "http://localhost:5000";
+export const SERVER_URL = "https://prohockey-server.onrender.com";
+// export const SERVER_URL = "http://localhost:5000";
 
 export const urlMap = {
   cart: "Корзина",
