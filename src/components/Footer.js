@@ -1,5 +1,4 @@
 import { socialLinks } from "@/shared/constants";
-import { Instagram, Telegram, WhatsApp } from "@mui/icons-material";
 import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";

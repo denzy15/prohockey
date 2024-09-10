@@ -23,7 +23,7 @@ const CategoryCard = ({ category }) => {
           <CardActionArea>
             <CardMedia
               component="img"
-              image={`${SERVER_URL}/${category.photo}`}
+              image={category.photo}
               height="190"
               alt={category.name}
               sx={{ objectFit: "contain" }}

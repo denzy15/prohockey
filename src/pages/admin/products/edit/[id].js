@@ -1,13 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import axios from "axios";
-import { useRouter } from "next/router";
 import React from "react";
 import { ProductForm } from "@/modules/admin";
 import { SERVER_URL } from "@/shared/constants";
 
 const ProductEdit = ({ categories, initialData }) => {
-  const router = useRouter();
-
   return (
     <Box>
       <Typography variant="h5" sx={{ mb: 2 }}>

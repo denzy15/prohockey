@@ -8,9 +8,8 @@ import MainLayout from "@/layouts/MainLayout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "@/modules/cart";
-import { AppProvider } from "@/context/AppContext";
 import Head from "next/head";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,14 +42,12 @@ export default function App({ Component, pageProps }) {
       </Head>
       <ThemeProvider theme={theme}>
         <CartProvider>
-          <AppProvider>
-            <Layout>
-              <div className={inter.className}>
-                <Component {...pageProps} />
-                <SpeedInsights />
-              </div>
-            </Layout>
-          </AppProvider>
+          <Layout>
+            <div className={inter.className}>
+              <Component {...pageProps} />
+              <SpeedInsights />
+            </div>
+          </Layout>
           <ToastContainer
             position="top-right"
             autoClose={4000}

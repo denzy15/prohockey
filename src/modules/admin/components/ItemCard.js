@@ -66,7 +66,7 @@ const ItemCard = ({ data }) => {
       <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
         <CardMedia
           sx={{ height: 140 }}
-          image={`${SERVER_URL}/${data.photo}`}
+          image={data.photo}
           title={data.name}
         />
         <CardContent sx={{ flex: 1 }}>
